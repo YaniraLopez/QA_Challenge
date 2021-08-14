@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "testcafe chrome Tests/Signed_user.js"
+    "test": "testcafe chromium:headless, firefox:headless tests/**/* -r xunit:/tmp/test-results/testcafe/results.xml"
   },
   "dependencies": {
     "dotenv": "^10.0.0"
