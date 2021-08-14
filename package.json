@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "testcafe chrome:headless Tests/Signed_user.js --reporter xunit:Reports/report.json"
+    "test": "testcafe chrome:headless Tests/Signed_user.js --reporter xunit:Reports/report.xml"
   },
   "dependencies": {
     "dotenv": "^10.0.0"
