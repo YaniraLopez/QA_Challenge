@@ -8,10 +8,11 @@ require('dotenv').config({ path: '/Users/yanira.lopez/Documents/QA_Challenge/Con
 const email = process.env.USER_EMAIL;
 const password = process.env.PASSWORD;
 const wrong_password = process.env.WRONG_PASSWORD;
+const url = process.env.URL;
 let random = nanoid();
 
 fixture`Frontend test scripts`
-    .page(process.env.URL)
+    .page(url)
     .beforeEach(async t => {
         await t
             .maximizeWindow();
