@@ -1,0 +1,16 @@
+{
+    "browsers": "chrome",
+    "src": "Tests/Signed_user.js",
+    "reporter":{
+        "name":"xunit",
+        "output":"Reports/report.xml"
+    },
+    "screenshots": {
+        "path":  "./Reports/screenshots/",
+        "takeOnFails": true, 
+        "fullPage": false
+    },
+    "pageLoadTimeOut":5000,
+    "selectorTimeOut":5000,
+    "skipJSErrors":true
+}
