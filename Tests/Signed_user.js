@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import LoginPage from '../Pages/LogIn';
 import HomePage from '../Pages/Home';
 //set URL path for env file location
-require('dotenv').config({ path: '/Users/yanira.lopez/Documents/QA_Challenge/Configurations/.env' });
+require('dotenv').config({ path: './Configurations/.env' });
 //Global variables for credencials
 const email = process.env.USER_EMAIL;
 const password = process.env.PASSWORD;

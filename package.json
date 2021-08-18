@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "testcafe chrome Tests/Signed_user.js",
+    "test": "testcafe chrome Tests/Signed_user.js --reporter xunit:Reports/report.xml",
     "ChromeHeadless": "testcafe chrome:headless Tests/Signed_user.js --reporter xunit:Reports/report.xml",
     "test:configurationFile": "testcafe"
   },
