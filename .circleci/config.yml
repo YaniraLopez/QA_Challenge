@@ -14,11 +14,17 @@ jobs:
       - run:
           command: npm run ChromeHeadless
       - slack/notify:
+          color: "#42e2f4"
+          mentions: "yanira"
+          message: A custom message to notify the channel about the latest build
+      - slack/notify:
           event: fail
-          mentions: "@yanira"
+          channel: 'challenge'
+          template: basic_fail_1
       - slack/notify:
           event: pass
-          mentions: "@yanira"
+          channels: 'challenge'
+          template: success_tagged_deploy_1
       - store_test_results:
           path: Reports
 workflows:
