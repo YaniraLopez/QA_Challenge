@@ -10,7 +10,7 @@ class LoginPage {
         await t
             .typeText(this.emailInput, useremail)
             .typeText(this.passwordInput, password)
-            .click(this.loginBtn)
+            .click(this.loginBtn);
     }
 }
 export default new LoginPage();

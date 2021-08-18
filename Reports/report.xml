@@ -1,17 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite name="TestCafe Tests: Chrome 92.0.4515.131 / macOS 10.15.7" tests="7" failures="0" skipped="0" errors="0" time="37.759" timestamp="Sat, 14 Aug 2021 19:14:29 GMT" >
-  <testcase classname="Frontend test scripts" name="successful login" time="7.938">
+<testsuite name="TestCafe Tests: Chrome 92.0.4515.131 / macOS 10.15.7" tests="8" failures="1" skipped="0" errors="1" time="76.04" timestamp="Tue, 17 Aug 2021 21:48:41 GMT" >
+  <testcase classname="Frontend test scripts" name="successful login" time="7.623">
   </testcase>
-  <testcase classname="Frontend test scripts" name="Without password login" time="2.094">
+  <testcase classname="Frontend test scripts" name="Without password login" time="2.114">
   </testcase>
-  <testcase classname="Frontend test scripts" name="Without email login" time="1.903">
+  <testcase classname="Frontend test scripts" name="Without email login" time="2.06">
   </testcase>
-  <testcase classname="Frontend test scripts" name="Without values" time="1.591">
+  <testcase classname="Frontend test scripts" name="Without values" time="1.684">
   </testcase>
-  <testcase classname="Frontend test scripts" name="With user nickname login" time="2.74">
+  <testcase classname="Frontend test scripts" name="With user nickname login" time="2.575">
   </testcase>
-  <testcase classname="Frontend test scripts" name="With wrong password login" time="2.829">
+  <testcase classname="Frontend test scripts" name="With wrong password login" time="2.685">
   </testcase>
-  <testcase classname="Frontend test scripts" name="Create a new task" time="18.609">
+  <testcase classname="Frontend test scripts" name="Create a new task" time="8.607">
+  </testcase>
+  <testcase classname="Frontend test scripts" name="Create 10 new tasks" time="48.612">
+    <failure>
+    <![CDATA[
+      1) AssertionError: The task was not created: expected false to deeply equal true
+
+         + expected - actual
+
+         -false
+         +true
+
+
+         Browser: Chrome 92.0.4515.131 / macOS 10.15.7
+
+            70 |            random = nanoid();
+            71 |            await HomePage.QuickAddtaskFlow(random);
+            72 |            result = await HomePage.ValidateNewTask(random);
+            73 |            i++;
+            74 |        }
+          > 75 |        await t .expect(result).eql(true,'The task was not created');
+            76 |    });
+
+            at <anonymous> (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:75:33)
+            at asyncGeneratorStep
+      (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:4:255)
+            at _next (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:4:593)
+    ]]>
+    </failure>
   </testcase>
 </testsuite>
