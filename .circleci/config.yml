@@ -15,8 +15,12 @@ jobs:
           command: npm run ChromeHeadless
       - store_test_results:
           path: Reports
-      - slack/notify:
-workflows:
+      - slack/notify: 
+          event: pass 
+          template: basic_success_1
+      - slack/notify: 
+          event: fail 
+          template: basic_fail_1workflows:
   e2e-test:
     jobs:
       - test
