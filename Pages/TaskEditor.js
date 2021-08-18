@@ -1,7 +1,7 @@
 import { t, Selector } from 'testcafe';
 class taskEditorPage {
     constructor() {
-        this.taskTitleInput = Selector('.public-DraftStyleDefault-ltr');
+        this.taskTitleInput = Selector('.public-DraftStyleDefault-block');
         this.taskDescriptionInput = Selector('div.task_editor__input_fields > textarea');
         this.addTaskBtn = Selector('.reactist_button--primary');
     }
