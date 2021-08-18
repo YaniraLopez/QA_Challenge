@@ -16,13 +16,8 @@ jobs:
       - store_test_results:
           path: Reports
       - slack/notify:
-          event: fail
-          channel: 'challenge'
+          channel: C02BN1ZKR34
           template: basic_fail_1
-      - slack/notify:
-          event: pass
-          channels: 'challenge'
-          template: success_tagged_deploy_1
 workflows:
   e2e-test:
     jobs:
