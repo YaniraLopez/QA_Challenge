@@ -13,6 +13,8 @@ jobs:
       - node/install-packages
       - run:
           command: npm run ChromeHeadless
+      - store_test_results:
+          path: Reports
       - slack/notify:
           event: fail
           channel: 'challenge'
@@ -21,8 +23,6 @@ jobs:
           event: pass
           channels: 'challenge'
           template: success_tagged_deploy_1
-      - store_test_results:
-          path: Reports
 workflows:
   e2e-test:
     jobs:
