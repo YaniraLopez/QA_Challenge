@@ -1,7 +1,7 @@
-# This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
 version: 2.1
 orbs:
   node: circleci/node@4.1.0
+  slack: circleci/slack@4.4.2
   browser-tools: circleci/browser-tools@1.1.0
 jobs:
   test:
@@ -12,13 +12,17 @@ jobs:
       - browser-tools/install-browser-tools
       - node/install-packages
       - run:
-          command: npm run test
+          command: npm run ChromeHeadless
+      - slack/notify:
+          event: fail
+          mentions: "@yanira"
+          template: basic_fail_1
+      - slack/notify:
+          event: pass
+          template: success_tagged_deploy_1
       - store_test_results:
-          path: Results
+          path: Reports
 workflows:
   e2e-test:
     jobs:
       - test
-          # This is the node version to use for the `cimg/node` tag
-          # Relevant tags can be found on the CircleCI Developer Hub
-          # https://circleci.com/developer/images/image/cimg/node
