@@ -12,7 +12,7 @@ jobs:
       - browser-tools/install-browser-tools
       - node/install-packages
       - run:
-          command: npm run ChromeHeadless
+          command: npm run test:configurationFile
       - store_test_results:
           path: Reports
       - slack/notify:

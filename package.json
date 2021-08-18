@@ -2,7 +2,8 @@
   "scripts": {
     "test": "testcafe chrome Tests/Signed_user.js --reporter xunit:Reports/report.xml",
     "ChromeHeadless": "testcafe chrome:headless Tests/Signed_user.js --reporter xunit:Reports/report.xml",
-    "test:configurationFile": "testcafe"
+    "test:configurationFile": "testcafe",
+    "test:remote": "testcafe remote Tests/Signed_user.js --qr-code"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
