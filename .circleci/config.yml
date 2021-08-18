@@ -13,19 +13,10 @@ jobs:
       - node/install-packages
       - run:
           command: npm run ChromeHeadless
-      - slack/notify:
-          color: "#42e2f4"
-          mentions: "yanira"
-          message: A custom message to notify the channel about the latest build
-      - slack/notify:
-          event: fail
-          mentions: "@yanira"
-          template: basic_fail_1
-      - slack/notify:
-          event: pass
-          template: success_tagged_deploy_1
       - store_test_results:
           path: Reports
+      - slack/notify:
+          template: basic_fail_1
 workflows:
   e2e-test:
     jobs:
