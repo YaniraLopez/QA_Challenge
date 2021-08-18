@@ -14,10 +14,6 @@ jobs:
       - run:
           command: npm run ChromeHeadless
       - slack/notify:
-          color: "#42e2f4"
-          mentions: "yanira"
-          message: A custom message to notify the channel about the latest build
-      - slack/notify:
           event: fail
           channel: 'challenge'
           template: basic_fail_1
