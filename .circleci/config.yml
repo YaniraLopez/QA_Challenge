@@ -15,7 +15,11 @@ jobs:
           command: npm run test:configurationFile
       - store_test_results:
           path: Reports
-      - slack/notify:
+      - slack/notify: 
+          event: pass 
+          template: basic_success_1
+      - slack/notify: 
+          event: fail 
           template: basic_fail_1
 workflows:
   e2e-test:
