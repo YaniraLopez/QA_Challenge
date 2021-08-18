@@ -20,7 +20,8 @@ jobs:
           template: basic_success_1
       - slack/notify: 
           event: fail 
-          template: basic_fail_1workflows:
+          template: basic_fail_1
+workflows:
   e2e-test:
     jobs:
       - test
