@@ -16,7 +16,6 @@ jobs:
       - store_test_results:
           path: Reports
       - slack/notify:
-          template: basic_fail_1
 workflows:
   e2e-test:
     jobs:
