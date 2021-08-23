@@ -12,14 +12,12 @@ jobs:
       - browser-tools/install-browser-tools
       - node/install-packages
       - run:
-          command: npm run test:configurationFile
+          - command: npm run test:configurationFile
+          - command: npm run test:backend
       - store_test_results:
           path: Reports
-      - slack/notify: 
-          event: pass 
-          template: basic_success_1
-      - slack/notify: 
-          event: fail 
+      - slack/notify:
+          event: fail
           template: basic_fail_1
 workflows:
   e2e-test:

@@ -67,7 +67,7 @@ fixture`Frontend test scripts`
         let i=0;
         let result = null;
         await LoginPage.loginFlow(email, password);
-        while(i<=2)
+        while(i<=10)
         {
             random = nanoid();
             await HomePage.QuickAddtaskFlow(random);

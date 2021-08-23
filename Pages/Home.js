@@ -4,7 +4,7 @@ import taskEditorPage from '../Pages/TaskEditor';
 class HomePage {
     constructor() {
         this.leftMenu = Selector('.left_menu');
-        this.quickAddBtn = Selector('#quick_add_task_holder');
+        this.addTaskBtn = Selector('#plus_add_button');
         this.taskListElement = Selector('.today_view .task_list_item');
         this.taskTitleStr = Selector('li.task_list_item div.task_content');
         this.taskDecriptionStr = Selector('li.task_list_item div.task_description');
