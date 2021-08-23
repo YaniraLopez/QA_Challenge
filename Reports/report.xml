@@ -1,19 +1,151 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite name="TestCafe Tests: Chrome 92.0.4515.131 / macOS 10.15.7" tests="8" failures="0" skipped="0" errors="0" time="43.116" timestamp="Wed, 18 Aug 2021 19:05:18 GMT" >
-  <testcase classname="Frontend test scripts" name="successful login" time="8.066">
+<testsuite name="TestCafe Tests: Safari 14.1.1 / iOS 14.6" tests="6" failures="4" skipped="2" errors="4" time="40.949" timestamp="Wed, 18 Aug 2021 23:49:43 GMT" >
+  <testcase classname="Frontend test scripts" name="successful login" time="7.856">
   </testcase>
-  <testcase classname="Frontend test scripts" name="Without password login" time="2.464">
+  <testcase classname="Frontend test scripts" name="Without password login (screenshots: /Users/yanira.lopez/Documents/QA_Challenge/Reports/screenshots/2021-08-18_18-49-02/test-2/Safari_14.1.1_iOS_14.6/errors/1.png)" time="7.253">
+    <failure>
+    <![CDATA[
+      1) AssertionError: expected '\n                \n                Contraseña en
+      blanco.\n            ' to include 'Blank password'
+
+         Browser: Safari 14.1.1 / iOS 14.6
+         Screenshot:
+      /Users/yanira.lopez/Documents/QA_Challenge/Reports/screenshots/2021-08-18_18-49-02/test-2/Safari_14.1.1_iOS_14.6/errors/1.png
+
+            25 |    test
+            26 |    ('Without password login', async t => {
+            27 |        await t
+            28 |            .typeText(LoginPage.emailInput, email)
+            29 |            .click(LoginPage.loginBtn)
+          > 30 |            .expect(LoginPage.errorMsg.textContent).contains('Blank password');
+            31 |    });
+            32 |    test
+            33 |    ('Without email login', async t => {
+            34 |        await t
+            35 |            .typeText(LoginPage.passwordInput, password)
+
+            at <anonymous> (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:30:53)
+            at asyncGeneratorStep
+      (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:4:255)
+            at _next (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:4:593)
+            at <anonymous> (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:4:758)
+            at <anonymous> (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:4:499)
+            at <anonymous> (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:25:9)
+    ]]>
+    </failure>
   </testcase>
-  <testcase classname="Frontend test scripts" name="Without email login" time="2.439">
+  <testcase classname="Frontend test scripts" name="Without email login (screenshots: /Users/yanira.lopez/Documents/QA_Challenge/Reports/screenshots/2021-08-18_18-49-02/test-3/Safari_14.1.1_iOS_14.6/errors/1.png)" time="7.367">
+    <failure>
+    <![CDATA[
+      1) AssertionError: expected '\n                \n                Dirección de email no
+      válida.\n            ' to include 'Invalid email address'
+
+         Browser: Safari 14.1.1 / iOS 14.6
+         Screenshot:
+      /Users/yanira.lopez/Documents/QA_Challenge/Reports/screenshots/2021-08-18_18-49-02/test-3/Safari_14.1.1_iOS_14.6/errors/1.png
+
+            32 |    test
+            33 |    ('Without email login', async t => {
+            34 |        await t
+            35 |            .typeText(LoginPage.passwordInput, password)
+            36 |            .click(LoginPage.loginBtn)
+          > 37 |            .expect(LoginPage.errorMsg.textContent).contains('Invalid email
+      address');
+            38 |    });
+            39 |    test
+            40 |    ('Without values', async t => {
+            41 |        await t
+            42 |            .click(LoginPage.loginBtn)
+
+            at <anonymous> (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:37:53)
+            at asyncGeneratorStep
+      (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:4:255)
+            at _next (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:4:593)
+            at <anonymous> (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:4:758)
+            at <anonymous> (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:4:499)
+            at <anonymous> (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:32:9)
+    ]]>
+    </failure>
   </testcase>
-  <testcase classname="Frontend test scripts" name="Without values" time="2.065">
+  <testcase classname="Frontend test scripts" name="Without values (screenshots: /Users/yanira.lopez/Documents/QA_Challenge/Reports/screenshots/2021-08-18_18-49-02/test-4/Safari_14.1.1_iOS_14.6/errors/1.png)" time="7.44">
+    <failure>
+    <![CDATA[
+      1) AssertionError: expected '\n                \n                Dirección de email no
+      válida.\n            ' to include 'Invalid email address'
+
+         Browser: Safari 14.1.1 / iOS 14.6
+         Screenshot:
+      /Users/yanira.lopez/Documents/QA_Challenge/Reports/screenshots/2021-08-18_18-49-02/test-4/Safari_14.1.1_iOS_14.6/errors/1.png
+
+            38 |    });
+            39 |    test
+            40 |    ('Without values', async t => {
+            41 |        await t
+            42 |            .click(LoginPage.loginBtn)
+          > 43 |            .expect(LoginPage.errorMsg.textContent).contains('Invalid email
+      address');
+            44 |    });
+            45 |    test
+            46 |    ('With user nickname login', async t => {
+            47 |        await LoginPage.loginFlow(email.substring(0, 6), password);
+            48 |        await t
+
+            at <anonymous> (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:43:53)
+            at asyncGeneratorStep
+      (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:4:255)
+            at _next (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:4:593)
+            at <anonymous> (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:4:758)
+            at <anonymous> (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:4:499)
+            at <anonymous> (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:39:9)
+    ]]>
+    </failure>
   </testcase>
-  <testcase classname="Frontend test scripts" name="With user nickname login" time="2.783">
+  <testcase classname="Frontend test scripts" name="With user nickname login (screenshots: /Users/yanira.lopez/Documents/QA_Challenge/Reports/screenshots/2021-08-18_18-49-02/test-5/Safari_14.1.1_iOS_14.6/errors/1.png)" time="7.71">
+    <failure>
+    <![CDATA[
+      1) AssertionError: expected '\n                \n                Dirección de email no
+      válida.\n            ' to include 'Invalid email address'
+
+         Browser: Safari 14.1.1 / iOS 14.6
+         Screenshot:
+      /Users/yanira.lopez/Documents/QA_Challenge/Reports/screenshots/2021-08-18_18-49-02/test-5/Safari_14.1.1_iOS_14.6/errors/1.png
+
+            45 |    test
+            46 |    ('With user nickname login', async t => {
+            47 |        await LoginPage.loginFlow(email.substring(0, 6), password);
+            48 |        await t
+            49 |            .click(LoginPage.loginBtn)
+          > 50 |            .expect(LoginPage.errorMsg.textContent).contains('Invalid email
+      address');
+            51 |    });
+            52 |    test
+            53 |    ('With wrong password login', async t => {
+            54 |        await LoginPage.loginFlow(email, wrong_password);
+            55 |        await t.expect(LoginPage.errorMsg.textContent).contains('Wrong email or
+      password');
+
+            at <anonymous> (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:50:53)
+            at asyncGeneratorStep
+      (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:4:255)
+            at _next (/Users/yanira.lopez/Documents/QA_Challenge/Tests/Signed_user.js:4:593)
+    ]]>
+    </failure>
   </testcase>
-  <testcase classname="Frontend test scripts" name="With wrong password login" time="2.933">
+  <testcase classname="Frontend test scripts" name="With wrong password login" time="3.197">
   </testcase>
-  <testcase classname="Frontend test scripts" name="Create a new task" time="8.494">
+  <testcase classname="Frontend test scripts" name="Create a new task" time="0.001">
+    <skipped/>
   </testcase>
-  <testcase classname="Frontend test scripts" name="Create 10 new tasks" time="13.814">
+  <testcase classname="Frontend test scripts" name="Create 10 new tasks" time="0.002">
+    <skipped/>
   </testcase>
+  <system-out>
+  <![CDATA[
+    Warnings (1):
+    --
+      The screenshot and window resize functionalities are not supported in a remote browser. They
+      can function only if the browser is running on the same machine and in the same environment
+      as the TestCafe server.
+  ]]>
+  </system-out>
 </testsuite>

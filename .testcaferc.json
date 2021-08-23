@@ -1,5 +1,5 @@
 {
-    "browsers": "chrome",
+    "browsers": ["browserstack:chrome@92.0:Windows 10", "browserstack:Samsung Galaxy S20 Plus@10.0"],
     "src": "Tests/Signed_user.js",
     "reporter":{
         "name":"xunit",

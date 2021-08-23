@@ -1,0 +1,516 @@
+{
+	"info": {
+		"_postman_id": "d619c0c4-33f1-48c4-80ac-b32bba5659bb",
+		"name": "BACKEND_TODOIST",
+		"description": "Testing for All APIs for actions in tasks and projects",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "New Task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"activeTaskId\", pm.response.json().id);",
+									"",
+									"pm.test(\"New task have a id number\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"id\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"title {{randomStr}}\" , \n    \"description\": \"description {{randomDescription}}\",\n    \"due_lang\": \"en\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URLtasks}}",
+							"host": [
+								"{{URLtasks}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Active tasks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"idValue = JSON.parse(responseBody);",
+									"value = idValue.length",
+									"result = false;",
+									"newtaskId = pm.environment.get(\"activeTaskId\");",
+									"",
+									"pm.test(\"New task should be adde to tasks active list\", function () {",
+									"    for(i=0; i< value; i++){",
+									"        if (idValue[i].id == newtaskId){",
+									"            result=true;",
+									"            break;",
+									"        }",
+									"        continue;",
+									"    }   ",
+									"    pm.expect(result).to.eql(true);",
+									"});",
+									"pm.test(\"New task have a id number\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"id\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URLtasks}}",
+							"host": [
+								"{{URLtasks}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Active task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"New task have a id number\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"id\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URLtasks}}/{{activeTaskId}}",
+							"host": [
+								"{{URLtasks}}"
+							],
+							"path": [
+								"{{activeTaskId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"{{$randomCity}}\",\n    \"due_string\": \"tomorrow at 12:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URLtasks}}/{{activeTaskId}}",
+							"host": [
+								"{{URLtasks}}"
+							],
+							"path": [
+								"{{activeTaskId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Close",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URLtasks}}/{{activeTaskId}}/close",
+							"host": [
+								"{{URLtasks}}"
+							],
+							"path": [
+								"{{activeTaskId}}",
+								"close"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reopen",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URLtasks}}/{{activeTaskId}}/reopen",
+							"host": [
+								"{{URLtasks}}"
+							],
+							"path": [
+								"{{activeTaskId}}",
+								"reopen"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URLtasks}}/{{activeTaskId}}",
+							"host": [
+								"{{URLtasks}}"
+							],
+							"path": [
+								"{{activeTaskId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "New project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"activeProjectId\", jsonData.id);",
+									"",
+									"pm.test(\"New task have a id number\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"id\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{$randomDepartment}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URLprojects}}",
+							"host": [
+								"{{URLprojects}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Active_Projects",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"idValue = JSON.parse(responseBody);",
+									"value = idValue.length",
+									"result = false;",
+									"newProjectId = pm.environment.get(\"activeProjectId\");",
+									"",
+									"pm.test(\"New task should be adde to tasks active list\", function () {",
+									"    for(i=0; i< value; i++){",
+									"        if (idValue[i].id == newProjectId){",
+									"            result=true;",
+									"            break;",
+									"        }",
+									"        continue;",
+									"    }   ",
+									"    pm.expect(result).to.eql(true);",
+									"});",
+									"",
+									"pm.test(\"New task have a id number\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"id\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URLprojects}}",
+							"host": [
+								"{{URLprojects}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Active Project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"New task have a id number\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"id\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URLprojects}}/{{activeProjectId}}",
+							"host": [
+								"{{URLprojects}}"
+							],
+							"path": [
+								"{{activeProjectId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{$randomVerb}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URLprojects}}/{{activeProjectId}}",
+							"host": [
+								"{{URLprojects}}"
+							],
+							"path": [
+								"{{activeProjectId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URLprojects}}/{{activeProjectId}}",
+							"host": [
+								"{{URLprojects}}"
+							],
+							"path": [
+								"{{activeProjectId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token_Authorization}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"  pm.expect(pm.response.code).to.be.oneOf([200,204]);",
+					"});",
+					"",
+					"pm.test(\"Response time is less than 200ms\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(200);",
+					"});",
+					"",
+					"pm.test(\"Status code name No Content has string is present\", function () {",
+					"    pm.response.to.have.status(\"No Content\");",
+					"});",
+					"",
+					"pm.test(\"Status code name OK has string is present\", function () {",
+					"    pm.response.to.have.status(\"OK\");",
+					"});",
+					"",
+					"pm.test(\"Content-Type is present\", function () {",
+					"    pm.response.to.have.header(\"Content-Type\");",
+					"});",
+					"",
+					"pm.test(\"Schema is valid\", function () {",
+					"    var jsonData = pm.response.json();",
+					"    var schema = {",
+					"        \"Properties\":",
+					"        {",
+					"            \"id\": {\"Type\":\"number\"},",
+					"            \"assigner\": {\"Type\":\"number\"},",
+					"            \"project_id\": {\"Type\":\"number\"},",
+					"            \"section_id\": {\"Type\":\"number\"},",
+					"            \"order\": {\"Type\":\"number\"},",
+					"            \"content\": {\"Type\":\"number\"},",
+					"            \"description\": {\"Type\":\"number\"},",
+					"            \"completed\": {\"Type\":\"boolean\"},",
+					"            \"label_ids\": [],",
+					"            \"priority\": {\"Type\":\"number\"},",
+					"            \"comment_count\": {\"Type\":\"number\"},",
+					"            \"creator\": {\"Type\":\"number\"},",
+					"            \"created\":{\"Type\":\"string\"},",
+					"            \"url\": {\"Type\":\"number\"}",
+					"        }",
+					"    }",
+					"    pm.expect(tv4.validate(jsonData, schema)).to.be.true;",
+					"});",
+					""
+				]
+			}
+		}
+	]
+}

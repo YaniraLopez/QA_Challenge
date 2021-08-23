@@ -10,16 +10,15 @@ jobs:
     steps:
       - checkout
       - browser-tools/install-browser-tools
-      - node/install-packages
+      - node/install-npm
       - run:
-          command: npm run ChromeHeadless
+          command: npm run test:configurationFile
+      - run:
+          command: npm run test:backend
       - store_test_results:
           path: Reports
-      - slack/notify: 
-          event: pass 
-          template: basic_success_1
-      - slack/notify: 
-          event: fail 
+      - slack/notify:
+          event: fail
           template: basic_fail_1
 workflows:
   e2e-test:
