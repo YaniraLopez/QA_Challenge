@@ -12,8 +12,9 @@ jobs:
       - browser-tools/install-browser-tools
       - node/install-packages
       - run:
-          - command: npm run test:configurationFile
-          - command: npm run test:backend
+          command: npm run test:configurationFile
+      - run:
+          command: npm run test:backend
       - store_test_results:
           path: Reports
       - slack/notify:
