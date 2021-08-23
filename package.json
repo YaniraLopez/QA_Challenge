@@ -4,10 +4,12 @@
     "ChromeHeadless": "testcafe chrome:headless Tests/Signed_user.js --reporter xunit:Reports/report.xml",
     "test:configurationFile": "testcafe",
     "test:remote": "testcafe remote Tests/Signed_user.js --qr-code",
-    "test:backend":"newman run API/BACKEND.postman_collection.json -e API/TODOIST.postman_environment.json -r htmlextra"
+    "test:backend": "newman run positive/BACKEND_positive.postman_collection.json -e positive/TODOIST.postman_environment.json -r htmlextra"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
+    "newman": "^5.2.4",
+    "newman-reporter-htmlextra": "^1.21.0",
     "testcafe-browser-provider-browserstack": "^1.13.2-alpha.1"
   },
   "devDependencies": {
