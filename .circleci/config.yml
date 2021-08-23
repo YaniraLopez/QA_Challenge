@@ -11,6 +11,7 @@ jobs:
       - checkout
       - browser-tools/install-browser-tools
       - node/install-packages
+      - npm install newman
       - run:
           command: npm run test:configurationFile
       - run:
