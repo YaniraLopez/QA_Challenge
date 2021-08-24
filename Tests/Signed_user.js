@@ -55,14 +55,12 @@ fixture`Frontend test scripts`
         await t.expect(LoginPage.errorMsg.textContent).contains('Wrong email or password');
     });
     test
-    .skip
     ('Create a new task', async t => {
         await LoginPage.loginFlow(email, password);
         await HomePage.QuickAddtaskFlow(random);
         await t .expect(await HomePage.ValidateNewTask(random)).eql(true,'The task was not created');
     });
     test
-    .skip
     ('Create 10 new tasks', async t => {
         let i=0;
         let result = null;
